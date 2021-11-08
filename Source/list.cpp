@@ -2,15 +2,16 @@
 #include "contact.h"
 #include "list.h"
 
-void list_initialize(LinkedList* list)
+void list_initialize(struct LinkedList* list)
 {
     list->head = NULL;
+    list->tail = NULL;
     list->size = 0;
 }
 
-Node* create_node(void* data)
+struct Node* create_node(void* data)
 {
-    Node* node = new Node;
+    struct Node* node = new Node;
     if (node != NULL)
     {
         node->data = data;
@@ -22,33 +23,22 @@ Node* create_node(void* data)
     return NULL;
 }
 
-void insert_first(LinkedList* list, void* data)
+// The new node will be inserted at the end of the list
+void insert(struct LinkedList* list, void* data)
 {
-    Node* node = create_node(data);
+    struct Node* node = create_node(data);
 
     if (list->head == NULL)
     {
         list->head = node;
+        list->tail = node;
     }
     else
     {
-        node->next = list->head;
-        list->head = node;
+        list->tail->next = node;
+        list->tail = node;
+        //node->next = list->tail;
+        //list->tail = node;
     }
     list->size += 1;
-}
-
-void print_list(LinkedList* list)
-{
-    Node* current_node = list->head;
-
-    while (current_node != NULL)
-    {
-        Contact* data = (Contact*)current_node->data;
-        std::cout << "ID: " << data->id << std::endl;
-        std::cout << "Name: " << data->name << std::endl;
-        std::cout << "Phone: " << data->phone_number << std::endl;
-
-        current_node = current_node->next;
-    }
 }

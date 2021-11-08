@@ -2,22 +2,21 @@
 #define _LIST_H_
 #include "contact.h"
 
-typedef struct Node
+struct Node
 {
     void* data;
     struct Node* next;
-} Node;
+};
 
-typedef struct LinkedList
+struct LinkedList
 {
     size_t size;
     struct Node* head;
-} LinkedList;
+    struct Node* tail;
+};
 
-void list_initialize(LinkedList* list);
-Node* create_node(void* data);
-void insert_first(LinkedList* list, void* data);
-
-void print_list(LinkedList* list);
+void list_initialize(struct LinkedList* list);
+struct Node* create_node(void* data);
+void insert(struct LinkedList* list, void* data);
 
 #endif

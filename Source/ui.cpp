@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <string>
 #include "ui.h"
+#include "contact.h"
 
 void print_title()
 {
@@ -21,7 +22,7 @@ void print_menu()
 
 		if (error == 1)
 		{
-			std::cout << error_msg << std::endl;
+			std::cout << "*** " << error_msg << std::endl;
 			error = 0;
 		}
 		std::cout << "1. Add Contact" << std::endl;
@@ -30,26 +31,26 @@ void print_menu()
 		std::cout << "4. Search Contact" << std::endl;
 		std::cout << "5. View All Contact" << std::endl;
 		std::cout << "0. Exit Program" << std::endl;
-
+		std::cout << std::endl << "Choice: ";
 		std::cin >> choice;
 
 		switch (choice)
 		{
-		case 1:
-			break;
-		case 2:
-			break;
-		case 3:
-			break;
-		case 4:
-			break;
-		case 5:
-			break;
-		case 0:
-			break;
-		default:
-			error = 1;
-			error_msg = "Invalid choice. Please try again";
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 0:
+				exit_program();
+			default:
+				error = 1;
+				error_msg = "Invalid choice. Please try again";
 		}
  	}
 }

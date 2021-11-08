@@ -10,7 +10,7 @@ void initialize()
     struct LinkedList *contact_list = new LinkedList;
     list_initialize(contact_list);
     import_data(contact_list);
-    print_contact_list(contact_list);
+    // print_contact_list(contact_list);
 }
 
 void import_data(struct LinkedList* list)

@@ -19,5 +19,6 @@ void import_data(struct LinkedList* list);
 void print_contact_list(struct LinkedList* list);
 
 void split_string(std::string str, const std::string DELIMITER, std::vector<std::string>& out);
+void exit_program();
 
 #endif // _CONTACT_H_

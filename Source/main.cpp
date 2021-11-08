@@ -6,8 +6,8 @@
 
 int main()
 {
-
     initialize();
+    print_menu();
 
     return 0;
 }

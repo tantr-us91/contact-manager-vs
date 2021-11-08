@@ -10,7 +10,7 @@ void initialize()
     struct LinkedList *contact_list = new LinkedList;
     list_initialize(contact_list);
     import_data(contact_list);
-    print_contact_list(contact_list);
+    // print_contact_list(contact_list);
 }
 
 void import_data(struct LinkedList* list)
@@ -43,7 +43,7 @@ void print_contact_list(struct LinkedList* list)
 
     while (current_node != NULL)
     {
-        struct Contact* data = (Contact*)current_node->data;
+        struct Contact* data = (Contact*) current_node->data;
         std::cout << "ID: " << data->id << std::endl;
         std::cout << "Name: " << data->name << std::endl;
         std::cout << "Phone: " << data->phone_number << std::endl;
@@ -52,7 +52,7 @@ void print_contact_list(struct LinkedList* list)
     }
 }
 
-void split_string(std::string str, const std::string DELIMITER, std::vector<std::string>& out)
+void split_string(std::string str, const std::string DELIMITER, std::vector<std::string> &out)
 {
     size_t start = 0, pos;
     while ((pos = str.find(DELIMITER)) != std::string::npos)
@@ -63,3 +63,8 @@ void split_string(std::string str, const std::string DELIMITER, std::vector<std:
     out.push_back(str); // push the remained string (phone number) into the vector
 }
 
+void exit_program()
+{
+    std::cout << "Goodbye!" << std::endl;
+    exit(EXIT_SUCCESS);
+}
